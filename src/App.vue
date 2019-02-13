@@ -1,26 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <InterfacePlugin/>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+  import InterfacePlugin from "./components/InterfacePlugin";
 
-export default {
-  name: "app",
-  components: {
-    HelloWorld
-  }
-};
+  export default {
+    name: "app",
+    components: {
+      InterfacePlugin
+    }
+  };
 </script>
-<style lang="stylus">
-#app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
+<style lang="sass">
+  body
+    height: 100vh;
+    overflow: hidden;
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+  #app
+    border: 1px solid gray;
+    height: 100%;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    text-align: center;
+    color: #2c3e50;
 </style>
