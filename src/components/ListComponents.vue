@@ -1,22 +1,25 @@
 <template>
+  <WrapperSidebar name="Доступные виджеты">
   <ul class="list-items">
-    <draggable v-model="vidgets" :options="options">
-      <li v-for="(item, index) in vidgets" :key="index">{{item.name}}</li>
+    <draggable v-model="widgets" :options="options">
+      <li v-for="(item, index) in widgets" :key="index">{{item.name}}</li>
     </draggable>
   </ul>
+  </WrapperSidebar>
 </template>
 
 <script>
   import draggable from "vuedraggable";
-
+  import WrapperSidebar from './WrapperSidebar';
   export default {
     name: "ListComponents",
     components: {
-      draggable
+      draggable,
+      WrapperSidebar
     },
     data() {
       return {
-        vidgets: [
+        widgets: [
           {
             name: "Item1"
           },
@@ -46,11 +49,12 @@
 
 <style scoped lang="stylus">
   ul.list-items
-    width: 300px;
     list-style: none;
+    margin: 0;
+    padding: 0;
     li
       border: 1px solid black;
-      background-color gray
+      background-color gray;
     .placeholder
       background-color: orange;
 </style>
