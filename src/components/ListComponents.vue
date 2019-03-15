@@ -45,11 +45,12 @@
     computed: {
       draggableOptions() {
         return {
-          disabled: this.viewMode !== 'develop',
           ghostClass: 'placeholder-draggable',
-          group: 'addWidgetList',
+          group: {
+            name: 'widgetsList',
+            pull: 'clone',
+          },
           sort: false,
-          pull: 'clone',
         };
       },
       widgetsList() {

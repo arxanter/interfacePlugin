@@ -46,24 +46,25 @@
       wLED,
     },
     data() {
-      return {
-        dataSendTemplate: {
-          indexColumn: this.indexColumn,
-          menuUID: this.menuUID,
-        },
-      };
+      return {};
     },
     computed: {
       viewMode() {
         return this.$store.state.visio.mode;
+      },
+      dataSendTemplate() {
+        return {
+          indexColumn: this.indexColumn,
+          menuUID: this.menuUID,
+        };
       },
       draggableOptions() {
         return {
           disabled: this.viewMode !== 'develop',
           ghostClass: 'placeholder-draggable',
           group: {
-            name: 'widgetList',
-            pull: ['widgetList', 'addWidgetList'],
+            name: 'widgets',
+            put: ['widgetsList', 'widgets'],
           },
         };
       },

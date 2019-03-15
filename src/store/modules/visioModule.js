@@ -1,5 +1,22 @@
 import Vue from 'vue';
-import widgetsList from './widgetsList.js'
+import widgetsList from './widgetsList.js';
+
+const generateUID = () => {
+  // I generate the UID from two parts here
+  // to ensure the random number provide enough bits.
+  var firstPart = (Math.random() * 46656) | 0;
+  var secondPart = (Math.random() * 46656) | 0;
+  firstPart = ('000' + firstPart.toString(36)).slice(-3);
+  secondPart = ('000' + secondPart.toString(36)).slice(-3);
+  return firstPart + secondPart;
+};
+
+const replaceArray = (data, menuItem, indexColumn) => {
+  if (indexColumn !== undefined) {
+    Vue.set(menuItem.widgets, indexColumn, data);
+  } else menuItem.widgets = data;
+};
+
 export default {
   state: {
     mode: 'develop',
@@ -201,11 +218,13 @@ export default {
                 },
               },
             ],
+            [],
+            [],
           ],
         },
       ],
     },
-    widgetsList: widgetsList
+    widgetsList: widgetsList,
   },
 
   getters: {},
@@ -221,10 +240,10 @@ export default {
       replaceArray(newArray, menuItem, indexColumn);
     },
     SELECT_EDIT(state, data) {
-      state.editElement = data;
+      Vue.set(state, 'editElement', data);
     },
     SELECT_ACTIVE_MENU(state, data) {
-      state.activeMenu = data;
+      Vue.set(state, 'activeMenu', data);
     },
     SAVE_CONFIG(state, { data, item }) {
       item.settings = data;
@@ -233,12 +252,24 @@ export default {
       const indexItem = state.data.menuItems.indexOf(item);
       if (indexItem !== -1) state.data.menuItems.splice(indexItem, 1);
     },
+    ADD_ITEM_MENU(state) {
+      const creatUID = () => {
+        let uid = generateUID();
+        if (state.data.menuItems.indexOf(uid) !== -1) uid = creatUID();
+        return uid;
+      };
+      const uid = creatUID();
+      const newMenu = {
+        settings: {
+          name: 'Заголовок',
+          templateType: 'ColumnsTemplate',
+          icon: 'home',
+        },
+        widgets: [[], [], []],
+        uid,
+      };
+      state.data.menuItems.push(newMenu);
+    },
   },
   actions: {},
-};
-
-const replaceArray = (data, menuItem, indexColumn) => {
-  if (indexColumn !== undefined) {
-    Vue.set(menuItem.widgets, indexColumn, data);
-  } else menuItem.widgets = data;
 };
