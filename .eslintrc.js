@@ -4,10 +4,6 @@ module.exports = {
     node: true
   },
   extends: [ "plugin:vue/essential", "prettier"],
-  globals: {
-    __static: true,
-    _: true,
-  },
   rules: {
     'prefer-destructuring': ['error', { object: false, array: false }],
     'global-require': 0,
@@ -22,7 +18,7 @@ module.exports = {
     'func-names': ["error", "as-needed"],
     // allow debugger during development
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     
   },
   parserOptions: {

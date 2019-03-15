@@ -37,9 +37,10 @@
   #interfacePlugin
     display: grid;
     display: grid;
-    grid-template-columns: 250px calc(100% - 500px) 250px;
+    grid-template-columns: 250px calc(100% - 550px) 300px;
     grid-template-rows: 100%;
     height: 100%;
+    font-size: 13px
   .box-settings
     .el-input__inner
       height: 20px !important;

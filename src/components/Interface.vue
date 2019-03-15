@@ -1,7 +1,9 @@
 <template>
   <div
     class="box-interface"
-    :style="{ width: `${currentSize.width}px`, height: `${currentSize.height}px` }"
+    :style="{ width: `${currentSize.width}px`, 
+    height: `${currentSize.height}px`, 
+    transform: transformValue }"
   >
     <div class="interface">
       <TemplateAurora mode="develop" :data="projectData"/>
@@ -10,9 +12,9 @@
 </template>
 
 <script>
-import TemplateAurora from './templates/Aurora/index';
+  import TemplateAurora from "./templates/Aurora/index";
   export default {
-    name: 'Interface',
+    name: "Interface",
     components: {
       TemplateAurora
     },
@@ -44,25 +46,24 @@ import TemplateAurora from './templates/Aurora/index';
             width: 768,
             height: 1024
           }
-        },
+        }
       };
     },
     computed: {
       currentSize() {
         // Добавляем к размерам экрана размер отступа для правильного отображения.
         const currentSize = Object.assign({}, this.size[this.type]);
-        currentSize.width = currentSize.width * this.scale / 100 + 20;
-        currentSize.height = currentSize.height * this.scale / 100 + 20;
+        currentSize.width = (currentSize.width * this.scale) / 100 + 20;
+        currentSize.height = (currentSize.height * this.scale) / 100 + 20;
         return currentSize;
       },
+      transformValue() {
+        const translateX = -this.currentSize.width * (1 - this.scale / 100)/2;
+        const translateY = -this.currentSize.height * (1 - this.scale / 100)/2;
+        return `translate(${translateX}px,${translateY}px) scale(${this.scale / 100})`;
+      },
       projectData() {
-        return {
-          name: 'Проект 1',
-          menuItems: [
-            { name: "Главная", templateType: 'columns', icon: "", uid: 'ca3321q'},
-            { name: "Гостиная", templateType: 'columns', icon: "", uid: 'ca33222q'}
-          ]
-        }
+        return this.$store.state.visio.data;
       }
     }
   };
@@ -72,8 +73,9 @@ import TemplateAurora from './templates/Aurora/index';
   .box-interface
     padding: 20px;
     .interface
-      border: 1px solid gray;
+      border: 1px solid black;
       box-shadow: 0px 0px 10px 10px grey;
+      overflow: hidden
       border-radius: 10px
       height: 100%;
 </style>
