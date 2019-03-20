@@ -1,9 +1,9 @@
 <template>
-  <draggable v-model="widgetList" v-bind="draggableOptions" style="width:100%; height: 100%;">
+  <draggable v-model="widgetList" v-bind="draggableOptions" style="width:100%; height: 100%;" @clone="eventClone">
     <component
       v-for="(widget, key) in widgetList"
       :key="key"
-      :is="widget.type"
+      :is="widget.widgetType"
       :data="widget"
       :isCanEdit="true"
       @remove="eventRemove(widget)"
@@ -87,6 +87,11 @@
       },
       eventSettings(widget) {
         this.$store.commit('SELECT_EDIT', widget);
+      },
+      eventClone(ev, data) {
+        console.log(ev);
+        console.log(data);
+        return Object.assign({}, ev);
       },
     },
   };

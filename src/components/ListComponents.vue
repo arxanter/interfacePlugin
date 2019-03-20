@@ -2,7 +2,7 @@
   <WrapperSidebar name="Доступные виджеты">
     <ul class="list-items">
       <draggable v-model="widgetsList" v-bind="draggableOptions">
-        <component v-for="(widget, key) in widgetsList" :key="key" :is="widget.type" :data="widget" :isCanEdit="false"/>
+        <component v-for="(widget, key) in widgetsList" :key="key" :is="widget.widgetType" :data="widget" :isCanEdit="false"/>
       </draggable>
     </ul>
   </WrapperSidebar>
@@ -57,6 +57,9 @@
         return this.$store.state.visio.widgetsList;
       },
     },
+    methods: {
+
+    }
   };
 </script>
 

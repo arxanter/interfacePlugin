@@ -8,13 +8,14 @@ import locale from 'element-ui/lib/locale/lang/ru-RU';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 // Vue-resize
 import VueResize from 'vue-resize'
 import 'vue-resize/dist/vue-resize.css'
 
 
-library.add(fas, far);
+library.add(fas, far, fab);
 Vue.component('icon', FontAwesomeIcon);
 
 Vue.use(ElementUI, {size: 'mini', locale});

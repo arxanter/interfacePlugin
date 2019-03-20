@@ -52,6 +52,8 @@
     mounted() {
       // Check current width
       this.checkViewMode();
+      // Select first item menu as active
+      if (this.data) this.$store.commit('SELECT_ACTIVE_MENU', this.data.menuItems[0]);
     },
     methods: {
       checkViewMode() {

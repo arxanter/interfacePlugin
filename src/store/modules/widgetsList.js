@@ -1,6 +1,7 @@
 export default [
   {
-    type: 'wClimate',
+    widgetType: 'wClimate',
+    type: 'widget',
     settings: {
       name: 'Значение',
       address: 1,
@@ -8,7 +9,8 @@ export default [
     },
   },
   {
-    type: 'wDimmer',
+    widgetType: 'wDimmer',
+    type: 'widget',
     settings: {
       name: 'Значение',
       address: 1,
@@ -16,7 +18,8 @@ export default [
     },
   },
   {
-    type: 'wHeader',
+    widgetType: 'wHeader',
+    type: 'widget',
     settings: {
       name: 'Значение',
       address: 1,
@@ -24,7 +27,8 @@ export default [
     },
   },
   {
-    type: 'wInputNumber',
+    widgetType: 'wInputNumber',
+    type: 'widget',
     settings: {
       name: 'Значение',
       address: 1,
@@ -32,7 +36,8 @@ export default [
     },
   },
   {
-    type: 'wLED',
+    widgetType: 'wLED',
+    type: 'widget',
     settings: {
       name: 'Значение',
       address: 1,
@@ -40,7 +45,8 @@ export default [
     },
   },
   {
-    type: 'wScenes',
+    widgetType: 'wScenes',
+    type: 'widget',
     settings: {
       name: 'Значение',
       address: 1,
@@ -65,7 +71,8 @@ export default [
     ],
   },
   {
-    type: 'wSlider',
+    widgetType: 'wSlider',
+    type: 'widget',
     settings: {
       name: 'Значение',
       address: 1,
@@ -73,7 +80,8 @@ export default [
     },
   },
   {
-    type: 'wStatusIcon',
+    widgetType: 'wStatusIcon',
+    type: 'widget',
     settings: {
       name: 'Значение',
       address: 1,
@@ -84,7 +92,8 @@ export default [
     },
   },
   {
-    type: 'wStatusValue',
+    widgetType: 'wStatusValue',
+    type: 'widget',
     settings: {
       name: 'Значение',
       address: 1,
@@ -92,7 +101,8 @@ export default [
     },
   },
   {
-    type: 'wSwitch',
+    widgetType: 'wSwitch',
+    type: 'widget',
     settings: {
       name: 'Значение',
       address: 1,
