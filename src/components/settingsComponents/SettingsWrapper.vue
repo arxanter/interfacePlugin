@@ -14,5 +14,5 @@
     justify-content: space-between;
     padding: 2px 5px
   .settings-item__content
-    width: 150px;
+    width: 120px;
 </style>

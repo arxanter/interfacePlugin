@@ -96,8 +96,8 @@ export default [
     type: 'widget',
     settings: {
       name: 'Значение',
-      address: 1,
-      type: 2,
+      demension: '°C',
+      address: { status: null, type: 2, isAddress: true },
     },
   },
   {
@@ -105,8 +105,7 @@ export default [
     type: 'widget',
     settings: {
       name: 'Значение',
-      address: 1,
-      type: 2,
+      address: { value: null, status: null, type: 1, isAddress: true },
     },
   },
 ];

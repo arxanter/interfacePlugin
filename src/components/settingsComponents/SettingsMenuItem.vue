@@ -17,9 +17,11 @@
 <script>
   import SettingsWrapper from './SettingsWrapper';
   import SettingIcon from './components/SettingIcon';
+    import mixinSettings from './mixins/mixinSettings';
   export default {
     name: 'SettingsMenuItem',
     props: ['item'],
+    mixins: [mixinSettings],
     components: {
       SettingsWrapper,
       SettingIcon,
@@ -41,11 +43,6 @@
     },
     computed: {},
     methods: {
-      changeSetting(val, name) {
-        const newSettings = Object.assign({}, this.item.settings);
-        newSettings[name] = val;
-        this.$store.commit('CHANGE_SETTINGS', newSettings);
-      },
     },
   };
 </script>

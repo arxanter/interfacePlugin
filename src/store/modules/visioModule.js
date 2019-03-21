@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import widgetsList from './widgetsList.js';
 import iconsArray from './iconsArray.js';
-
+// !!! удалить после импорта в плагин;
+const _ = require('lodash');
+// !!! END
 // Func with generate short UID
 const generateUID = () => {
   // I generate the UID from two parts here
@@ -59,7 +61,7 @@ export default {
       const menuItem = state.data.menuItems.find(el => el.uid === menuUID);
       //  !!! Костыль для недублирования объектов, чтобы они все были уникальны.
       const currectData = data.map(el => {
-        if (el !== state.editElement) return Object.assign({}, el);
+        if (el !== state.editElement) return _.cloneDeep(el);
         else return el;
       });
       // Костыль END
